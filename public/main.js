@@ -181,7 +181,12 @@ socket.on("candidate", (event) => {
     candidate: event.candidate,
     sdpMid: event.id,
   });
-  rtcPeerConnection.addIceCandidate(candidate);
+  rtcPeerConnection.addIceCandidate(candidate).then(()=>{
+    console.log("ICE added successfully");
+  }).catch((err)=>{
+    console.log("Ice error");
+    console.log(err);
+  })
 });
 
 socket.on("roomFull", (info) => {
