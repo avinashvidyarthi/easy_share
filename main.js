@@ -241,6 +241,7 @@ function handelData(str) {
 }
 
 function onIceCandidate(event) {
+  console.log(event);
   if (event.candidate) {
     socket.emit("candidate", {
       label: event.candidate.sdpMLineIndex,
