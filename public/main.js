@@ -18,7 +18,7 @@ const btnSendSMS = document.getElementById("btnSendSMS");
 const inputFileCode = document.getElementById("inputFileCode");
 const inputFile = document.getElementById("inputFile");
 
-const socket = io("https://callz.herokuapp.com");
+const socket = io();
 
 let isSender,
   info,
