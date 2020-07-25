@@ -168,10 +168,10 @@ socket.on("offer", (infor) => {
   }
 });
 
-socket.on("answer", (info) => {
+socket.on("answer", (infor) => {
   divSendingStatus.innerText = "Status: Peer connected";
   console.log("Answer");
-  rtcPeerConnection.setRemoteDescription(new RTCSessionDescription(info.sdp));
+  rtcPeerConnection.setRemoteDescription(new RTCSessionDescription(infor.sdp));
 });
 
 socket.on("candidate", (event) => {
