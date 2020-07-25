@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- download js cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"></script>
+
+    <!-- socket.io cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <!-- sweetalert CDN -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>EasyShare</title>
+  </head>
+  <body>
+    <div id="divLanding">
+      <div class="container-fluid">
+        <div class="row" style="height: 100vh;">
+          <div class="col-md-4"></div>
+          <div class="col-md-4 my-auto">
+            <div class="container-fluid">
+              <h1 class="text-center text-white">
+                EASY SHARE
+              </h1>
+              <hr class="my-2" style="background-color: white;" />
+              <div class="my-3 mt-5">
+                <input type="file" id="inputFile" style="display: none;" />
+                <button class="btn btn-block btn-primary" id="btnChooseFile">
+                  Choose a file to send
+                </button>
+              </div>
+              <div class="text-center text-white">
+                OR
+              </div>
+              <div class="my-3">
+                <div class="form-group">
+                  <input
+                    type="number"
+                    id="inputFileCode"
+                    placeholder="File Code"
+                    class="form-control"
+                  />
+                  <button
+                    class="btn btn-block btn-primary my-2"
+                    id="btnReceiveFile"
+                  >
+                    Receive file
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="divSending" style="display: none;">
+      <div class="container-fluid text-white">
+        <div class="row" style="height: 100vh;">
+          <div class="col-md-4"></div>
+          <div class="col-md-4 my-auto">
+            <div class="container-fluid">
+              <h1 class="text-center text-white">
+                EasyShare
+              </h1>
+              <hr class="my-2" style="background-color: white;" />
+              <div class="text-center my-3" id="divSendingFileName"></div>
+              <div class="text-center my-2" id="divShowFileCodeWrapper">
+                File Code
+                <h2 id="divShowFileCode"></h2>
+                <a href="" class="btn btn-primary my-2" id="btnSendSMS">Send code by SMS</a>
+              </div>
+              <div class="text-center" id="divSentPercentWrapper" style="display: none;">
+                  <span id="divSentPercent" style="font-size: 24px;">0</span> %
+              </div>
+              <div class="text-center my-3" id="divSendingStatus">
+                Status: Connecting...
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="divReceiving" style="display: none;">
+      <div class="container-fluid text-white">
+        <div class="row" style="height: 100vh;">
+          <div class="col-md-4"></div>
+          <div class="col-md-4 my-auto">
+            <div class="container-fluid">
+              <h1 class="text-center text-white">
+                EasyShare
+              </h1>
+              <hr class="my-2" style="background-color: white;" />
+              <div class="text-center my-3" id="divReceivingFileName"></div>
+              <div class="text-center my-3" id="divReceivingStatus">
+                Status: Connecting...
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./main.js"></script>
+  </body>
+</html>

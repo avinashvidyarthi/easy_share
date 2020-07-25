@@ -1,0 +1,11 @@
+body {
+  background-color: rgb(5, 235, 252);
+}
+
+#divLanding {
+  min-height: 100vh;
+}
+
+h1{
+    /* font-family: roboto,cursive; */
+}
