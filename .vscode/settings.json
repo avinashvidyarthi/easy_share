@@ -5,6 +5,7 @@
         "onconnectionstatechange",
         "ondatachannel",
         "onicecandidate",
+        "oniceconnectionstatechange",
         "swal",
         "sweetalert"
     ]

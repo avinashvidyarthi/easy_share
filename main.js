@@ -57,7 +57,10 @@ inputFile.addEventListener("change", () => {
   fileName = inputFile.files[0].name;
   divSendingFileName.innerText = "File: " + inputFile.files[0].name;
   divShowFileCode.innerText = info.roomName;
-  btnSendSMS.href="sms:?body= Your file code for receiving a file is: "+info.roomName+". Visit https://avinashvidyarthi.github.io/easy-share and enter code to download the file.";
+  btnSendSMS.href =
+    "sms:?body= Your file code for receiving a file is: " +
+    info.roomName +
+    ". Visit https://avinashvidyarthi.github.io/easy-share and enter code to download the file.";
   divLanding.style.display = "none";
   divSending.style.display = "block";
 });
@@ -104,6 +107,7 @@ socket.on("ready", (infor) => {
     rtcPeerConnection = new RTCPeerConnection(iceServers);
     rtcPeerConnection.onicecandidate = onIceCandidate;
     rtcPeerConnection.onconnectionstatechange = stateListener;
+    rtcPeerConnection.oniceconnectionstatechange = iceStateListener;
     dataChannel = rtcPeerConnection.createDataChannel(info.roomName, {
       ordered: true,
     });
@@ -138,6 +142,7 @@ socket.on("offer", (infor) => {
     divReceivingStatus.innerText = "Status: Peer Connection Initialized";
     rtcPeerConnection = new RTCPeerConnection(iceServers);
     rtcPeerConnection.onicecandidate = onIceCandidate;
+    rtcPeerConnection.oniceconnectionstatechange = iceStateListener;
     rtcPeerConnection.onconnectionstatechange = stateListener;
     rtcPeerConnection.setRemoteDescription(
       new RTCSessionDescription(infor.sdp)
@@ -174,6 +179,7 @@ socket.on("candidate", (event) => {
   const candidate = new RTCIceCandidate({
     sdpMLineIndex: event.label,
     candidate: event.candidate,
+    sdpMid: event.id,
   });
   rtcPeerConnection.addIceCandidate(candidate);
 });
@@ -257,4 +263,8 @@ function sendFile() {
     }
     dataChannel.send("done");
   });
+}
+
+function iceStateListener(event) {
+  console.log(rtcPeerConnection.iceConnectionState);
 }
